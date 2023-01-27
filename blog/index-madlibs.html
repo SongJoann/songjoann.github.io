@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+    <!-- General meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    
+      <!-- Begin Jekyll SEO tag v2.6.1 -->  
+    <meta name="generator" content="Jekyll v4.3.2" />
+    <meta property="og:title" content="Blog" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="This is my new website" />
+    <meta property="og:description" content="This is my new website" />
+    <link rel="canonical" href="http://localhost:4000/blog/" />
+    <meta property="og:url" content="http://localhost:4000/blog/" />
+    <meta property="og:site_name" content="My website" />
+    <script type="application/ld+json">
+      {"url":"http://localhost:4000/blog/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/6c0377abcf4da91cdd35dea4554b2a4c?s=52"}},"headline":"Blog","description":"This is my new website","@type":"WebPage","@context":"https://schema.org"}</script>
+    <!-- End Jekyll SEO tag -->
+
+
+      
+      <title>Lab 3: Mad Libs Project</title>
+      <meta property="og:title" content="Posts">
+      <meta name="description" content="My thoughts and ideas">
+      <meta property="og:description" content="My thoughts and ideas">
+    
+    
+
+      <link rel="manifest" href="/manifest.json">
+      <meta name="theme-color" content="#242e2b"/>
+
+    
+      <link rel="stylesheet" href="/assets/styles.css">
+    
+      <style>
+      /* Sticky footer styles -------------------------------------------------- */
+      html {
+        position: relative;
+        min-height: 100%;
+      }
+
+      body {
+        margin-bottom: 60px;
+      /* Margin bottom by footer height */
+      }
+
+    .footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 60px;
+      /* Set the fixed height of the footer here */
+      line-height: 60px;
+      /* Vertically center the text there */
+      background-color: #f5f5f5;
+    }
+
+
+    /* Custom page CSS -------------------------------------------------- */
+    /* Not required for template or sticky footer method. */
+
+    .container {
+      width: auto;
+      max-width: 680px;
+      padding: 0 15px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Lab 3: Mad Libs Project</h1>
+    <p>Fill out the form below and click the button to see the story.</p>
+    <form method="get" id="form">
+      <div class="form-group">
+        <label for="person">Name</label>
+        <input type="text" class="form-control" id="person" name="person" placeholder="Add your name">
+      </div>
+      <div class="form-group">
+        <label for="verb">Occupation</label>
+        <input type="text" class="form-control" id="verb" name="occupation" placeholder="Add your job">
+      </div>
+      <div class="form-group">
+        <label for="noun">Location</label>
+        <input type="text" class="form-control" id="noun" name="noun" placeholder="Add your location">
+      </div>
+      <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div id="story"></div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <p>Created by <a href="https://jakespurlock.com">Jake Spurlock</a>
+    </div>
+  </footer>
+</body>
+
+<script>
+  // When we click the submit button, log the values of the form.
+  document.getElementById('submit').addEventListener('click', function (event) {
+    console.log(document.getElementById('person').value);
+    console.log(document.getElementById('verb').value);
+    console.log(document.getElementById('noun').value);
+
+    // Hide the form.
+    document.getElementById('form').style.display = 'none';
+
+    // Jake is a programmer in Seattle.
+    document.getElementById('story').innerHTML = document.getElementById('person').value + ' is a ' + document.getElementById('verb').value + ' in ' + document.getElementById('noun').value;
+  });
+
+  // Get the URL parameters and add them to the form.
+  var urlParams = new URLSearchParams(window.location.search);
+  document.getElementById('person').value = urlParams.get('person');
+  document.getElementById('verb').value = urlParams.get('occupation');
+  document.getElementById('noun').value = urlParams.get('noun');
+
+  // If we have the person, occupation, and noun, hide the form and show the story.
+  if (urlParams.get('person') && urlParams.get('occupation') && urlParams.get('noun')) {
+    document.getElementById('form').style.display = 'none';
+    document.getElementById('story').innerHTML = urlParams.get('person') + ' is a ' + urlParams.get('occupation') + ' in ' + urlParams.get('noun');
+  }
+
+  // Add a link to the story to clear the form.
+  document.getElementById('story').innerHTML += '<br><a class="btn btn-primary" href="index.html">Clear the form</a>';
+
+  // Hide the clear story form link if we don't have a story.
+  if (!urlParams.get('person') || !urlParams.get('occupation') || !urlParams.get('noun')) {
+    document.getElementById('story').style.display = 'none';
+  }
+
+</script>
+    
+
+    
+
+    
+
+
+    <!-- Overwrite this file with code you want before the closing head tag -->
+
+  </head>
+
+
+    <header class="header">
+  <div class="container">
+    <a class="logo" href="/">
+  <img src="https://www.gravatar.com/avatar/6c0377abcf4da91cdd35dea4554b2a4c?s=52" alt="My website logo"/>
+</a>
+
+
+    
+<nav class="nav  nav--header">
+  <ul class="list  list--nav">
+    
+
+      
+
+      <li class="item  item--nav">
+        <a href="/">Home</a>
+      </li>
+    
+
+      
+
+      <li class="item  item--nav">
+        <a href="/about/">About</a>
+      </li>
+    
+
+      
+
+      <li class="item  item--nav  item--current">
+        <a href="/blog/">Blog</a>
+      </li>
+    
+  </ul>
+  <button class="button  button--nav" aria-label="Menu toggle">
+    <svg width="16" height="16" class="icon  icon--nav" role="img" alt="Menu"><title>Menu</title><use xlink:href="#nav" fill="CurrentColor"></use></svg>
+
+  </button>
+</nav>
+
+
+<script type="text/javascript">
+  // Get list and button
+  const navList = document.querySelector('.header .list--nav')
+  const button  = document.querySelector('.header .button--nav')
+
+  // Hide nav and apply toggle
+  const collapseNav = () => {
+    if (document.body.clientWidth < 640) {
+      navList.style.setProperty('--listHeight', `-${navList.offsetHeight}px`)
+    } else {
+      navList.removeAttribute('style')
+    }
+
+    button.onclick = () => {
+      navList.style.setProperty('transition', `margin .1s`)
+      if (navList.style.getPropertyValue('--listHeight')) {
+        navList.style.removeProperty('--listHeight')
+      } else {
+        navList.style.setProperty('--listHeight', `-${navList.offsetHeight}px`)
+      }
+    }
+  }
+
+  collapseNav()
+
+  // Check on resize if to collapse nav
+  window.addEventListener('resize', () => {
+    collapseNav()
+  })
+</script>
+
+  </div>
+
+  
+
+
+
+
+  <div class="feature" style="background-image: url(https://picsum.photos/2560/600?image=866)">
+    <div class="container  typeset">
+      <p>Welcome to my blog</p>
+
+    </div>
+  </div>
+
+
+
+</header>
+
+
+<main class="main  container">
+
+  <div class="content">
+
+    <article class="article  article--page  typeset">
+
+      
+        
+        <h1>Posts</h1>
+        <p>My thoughts and ideas</p>
+
+
+      
+
+    </article>
+
+    
+  <section class="section  typeset">
+    <ul class="list  list--posts">
+      
+        <li class="item  item--post">
+          <article class="article  article--post">
+
+            <h2><a href="/general/2018/08/22/hello-world/">Hello World</a></h2>
+            
+
+<small class="small  post-meta">
+  
+  
+    
+      <span class="label  label--category"><a href="/categories/#general">General</a></span>
+    
+  &nbsp;&middot;&nbsp;<time datetime="2018-08-22T00:00:00-07:00" class="time">22 Aug 2018</time>
+</small>
+
+            <p>This is my very first blog post. I haven’t written anything yet but I’m sure I have some great stories to tell.</p>
+
+
+          </article>
+        </li>
+      
+    </ul>
+    <nav class="nav  nav--paginator">
+
+  
+    <span class="pagination  pagination--previous">&larr; Newer</span>
+  
+
+  <span class="pagination  pagination--counter">Page: 1 of 1</span>
+
+  
+    <span class="pagination  pagination--next">Older &rarr;</span>
+  
+
+</nav>
+
+  </section>
+
+
+
+  </div>
+
+  
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="copyright  typeset">
+      <small class="small">&copy; My website 2023</small>
+    </div>
+
+    
+<nav class="nav  nav--footer">
+  <ul class="list list--nav">
+    
+
+      
+
+      <li class="item  item--nav">
+        <a href="/#top">Back to top</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  </div>
+</footer>
+
+
+
+    <script type="text/javascript">
+(() => {
+  const registerServiceWorker = () => {
+    if (!navigator.serviceWorker) {
+      return;
+    }
+
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then(registration => {
+        console.log("Service Worker: registered");
+      })
+      .catch(err => {
+        console.log("Service Worker: registration failed ", err);
+      });
+  };
+
+  registerServiceWorker();
+})();
+</script>
+
+
+    <!-- Overwrite this file with code you want before the closing body tag -->
+
+  </body>
+
+</html>
