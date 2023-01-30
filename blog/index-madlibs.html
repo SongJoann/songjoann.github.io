@@ -73,80 +73,7 @@
   </style>
 </head>
 
-<body>
-  <div class="container">
-    <h1>Lab 3: Mad Libs Project</h1>
-    <p>Fill out the form below and click the button to see the story.</p>
-    <form method="get" id="form">
-      <div class="form-group">
-        <label for="person">Name</label>
-        <input type="text" class="form-control" id="person" name="person" placeholder="Add your name">
-      </div>
-      <div class="form-group">
-        <label for="verb">Occupation</label>
-        <input type="text" class="form-control" id="verb" name="occupation" placeholder="Add your job">
-      </div>
-      <div class="form-group">
-        <label for="noun">Location</label>
-        <input type="text" class="form-control" id="noun" name="noun" placeholder="Add your location">
-      </div>
-      <button id="submit" type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    <div id="story"></div>
-  </div>
-  <footer class="footer">
-    <div class="container">
-      <p>Created by <a href="https://jakespurlock.com">Jake Spurlock</a>
-    </div>
-  </footer>
-</body>
-
-<script>
-  // When we click the submit button, log the values of the form.
-  document.getElementById('submit').addEventListener('click', function (event) {
-    console.log(document.getElementById('person').value);
-    console.log(document.getElementById('verb').value);
-    console.log(document.getElementById('noun').value);
-
-    // Hide the form.
-    document.getElementById('form').style.display = 'none';
-
-    // Jake is a programmer in Seattle.
-    document.getElementById('story').innerHTML = document.getElementById('person').value + ' is a ' + document.getElementById('verb').value + ' in ' + document.getElementById('noun').value;
-  });
-
-  // Get the URL parameters and add them to the form.
-  var urlParams = new URLSearchParams(window.location.search);
-  document.getElementById('person').value = urlParams.get('person');
-  document.getElementById('verb').value = urlParams.get('occupation');
-  document.getElementById('noun').value = urlParams.get('noun');
-
-  // If we have the person, occupation, and noun, hide the form and show the story.
-  if (urlParams.get('person') && urlParams.get('occupation') && urlParams.get('noun')) {
-    document.getElementById('form').style.display = 'none';
-    document.getElementById('story').innerHTML = urlParams.get('person') + ' is a ' + urlParams.get('occupation') + ' in ' + urlParams.get('noun');
-  }
-
-  // Add a link to the story to clear the form.
-  document.getElementById('story').innerHTML += '<br><a class="btn btn-primary" href="index.html">Clear the form</a>';
-
-  // Hide the clear story form link if we don't have a story.
-  if (!urlParams.get('person') || !urlParams.get('occupation') || !urlParams.get('noun')) {
-    document.getElementById('story').style.display = 'none';
-  }
-
-</script>
-    
-
-    
-
-    
-
-
     <!-- Overwrite this file with code you want before the closing head tag -->
-
-  </head>
-
 
     <header class="header">
   <div class="container">
@@ -228,7 +155,7 @@
 
   <div class="feature" style="background-image: url(https://picsum.photos/2560/600?image=866)">
     <div class="container  typeset">
-      <p>Welcome to my blog</p>
+      <p>IDSN 599: Front End Programming</p>
 
     </div>
   </div>
@@ -244,10 +171,70 @@
 
     <article class="article  article--page  typeset">
 
-      
-        
-        <h1>Posts</h1>
-        <p>My thoughts and ideas</p>
+<body>
+  <div class="container">
+    <h1>Lab 3: Mad Libs Project</h1>
+    <p>Fill out the form below and click the button to see the story.</p>
+    <form method="get" id="form">
+      <div class="form-group">
+        <label for="person">Name</label>
+        <input type="text" class="form-control" id="person" name="person" placeholder="Add your name">
+      </div>
+      <div class="form-group">
+        <label for="verb">Occupation</label>
+        <input type="text" class="form-control" id="verb" name="occupation" placeholder="Add your job">
+      </div>
+      <div class="form-group">
+        <label for="noun">Location</label>
+        <input type="text" class="form-control" id="noun" name="noun" placeholder="Add your location">
+      </div>
+      <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div id="story"></div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <p>Created by <a href="https://jakespurlock.com">Jake Spurlock</a>
+    </div>
+  </footer>
+</body>
+
+<script>
+  // When we click the submit button, log the values of the form.
+  document.getElementById('submit').addEventListener('click', function (event) {
+    console.log(document.getElementById('person').value);
+    console.log(document.getElementById('verb').value);
+    console.log(document.getElementById('noun').value);
+
+    // Hide the form.
+    document.getElementById('form').style.display = 'none';
+
+    // Jake is a programmer in Seattle.
+    document.getElementById('story').innerHTML = document.getElementById('person').value + ' is a ' + document.getElementById('verb').value + ' in ' + document.getElementById('noun').value;
+  });
+
+  // Get the URL parameters and add them to the form.
+  var urlParams = new URLSearchParams(window.location.search);
+  document.getElementById('person').value = urlParams.get('person');
+  document.getElementById('verb').value = urlParams.get('occupation');
+  document.getElementById('noun').value = urlParams.get('noun');
+
+  // If we have the person, occupation, and noun, hide the form and show the story.
+  if (urlParams.get('person') && urlParams.get('occupation') && urlParams.get('noun')) {
+    document.getElementById('form').style.display = 'none';
+    document.getElementById('story').innerHTML = urlParams.get('person') + ' is a ' + urlParams.get('occupation') + ' in ' + urlParams.get('noun');
+  }
+
+  // Add a link to the story to clear the form.
+  document.getElementById('story').innerHTML += '<br><a class="btn btn-primary" href="index.html">Clear the form</a>';
+
+  // Hide the clear story form link if we don't have a story.
+  if (!urlParams.get('person') || !urlParams.get('occupation') || !urlParams.get('noun')) {
+    document.getElementById('story').style.display = 'none';
+  }
+
+</script>
+    
 
 
       
