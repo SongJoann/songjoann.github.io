@@ -49,27 +49,13 @@
       /* Margin bottom by footer height */
       }
 
-    .footer {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 60px;
-      /* Set the fixed height of the footer here */
-      line-height: 60px;
-      /* Vertically center the text there */
-      background-color: #f5f5f5;
-    }
+      /* Custom page CSS -------------------------------------------------- */
+      /* Not required for template or sticky footer method. */
 
-
-    /* Custom page CSS -------------------------------------------------- */
-    /* Not required for template or sticky footer method. */
-
-    .container {
-      width: auto;
-      max-width: 680px;
-      padding: 0 15px;
-    }
-    </style>
+      .lab_container {
+        padding: 0 15px;
+      }
+      </style>
 
 </head>
 
@@ -179,7 +165,6 @@
   if (!urlParams.get('person') || !urlParams.get('occupation') || !urlParams.get('noun')) {
     document.getElementById('story').style.display = 'none';
   }
-
 </script>
 
   </div>
@@ -201,6 +186,27 @@
 
     <article class="article  article--page  typeset">
 
+  <div class="lab_container">
+    <h1>Lab 3: Mad Libs Project</h1>
+    <p>Fill out the form below and click the button to see the story.</p>
+    <form method="get" id="form">
+      <div class="form-group">
+        <label for="person">Name</label>
+        <input type="text" class="form-control" id="person" name="person" placeholder="Add your name">
+      </div>
+      <div class="form-group">
+        <label for="verb">Occupation</label>
+        <input type="text" class="form-control" id="verb" name="occupation" placeholder="Add your job">
+      </div>
+      <div class="form-group">
+        <label for="noun">Location</label>
+        <input type="text" class="form-control" id="noun" name="noun" placeholder="Add your location">
+      </div>
+      <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div id="story"></div>
+  </div>
+  
     </article>
 
     
@@ -274,9 +280,6 @@
   registerServiceWorker();
 })();
 </script>
-
-
-    <!-- Overwrite this file with code you want before the closing body tag -->
 
   </body>
 
