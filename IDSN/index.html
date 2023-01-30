@@ -161,7 +161,7 @@
   document.getElementById('noun1').value = urlParams.get('noun1');
   document.getElementById('adverb').value = urlParams.get('adverb');
   document.getElementById('noun2').value = urlParams.get('noun2');
-  document.getElementById('noun2').value = urlParams.get('noun3');
+  document.getElementById('noun3').value = urlParams.get('noun3');
   document.getElementById('adjective_3').value = urlParams.get('adjective_3');
   document.getElementById('noun4').value = urlParams.get('noun4');
   document.getElementById('noun5').value = urlParams.get('noun5');
@@ -176,7 +176,7 @@
   document.getElementById('story').innerHTML += '<br><a class="btn btn-primary" href="index.html">Clear the form</a>';
 
   // Hide the clear story form link if we don't have a story.
-  if (!urlParams.get('adjective_1') || !urlParams.get('adjective_2') || !urlParams.get('name')  || !urlParams.get('noun1') || !urlParams.get('adverb') || !urlParams.get('noun2') || !urlParams.get('noun3') || !urlParams.get('adjective_3') || !urlParams.get('noun4') || !urlParams.get('noun5') {
+  if (!urlParams.get('adjective_1') || !urlParams.get('adjective_2') || !urlParams.get('name')  || !urlParams.get('noun1') || !urlParams.get('adverb') || !urlParams.get('noun2') || !urlParams.get('noun3') || !urlParams.get('adjective_3') || !urlParams.get('noun4') || !urlParams.get('noun5')) {
     document.getElementById('story').style.display = 'none';
   }
 </script>
