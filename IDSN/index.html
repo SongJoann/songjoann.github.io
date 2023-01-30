@@ -170,7 +170,7 @@
       </div>
       <div class="form-group">
         <label for="NOUN">NOUN</label>
-        <input type="text" class="form-control" id="noun1" name="noun1" placeholder="NOUN">
+        <input type="text" class="form-control" id="noun1" name="noun1" placeholder="OCCUPATION">
       </div>
       <div class="form-group">
         <label for="ADVERB">ADVERB</label>
@@ -238,7 +238,7 @@
   // If we have the person, occupation, and noun, hide the form and show the story.
   if (urlParams.get('adjective_1') && urlParams.get('adjective_2') && urlParams.get('name') && urlParams.get('noun1') && urlParams.get('adverb') && urlParams.get('noun2') && urlParams.get('noun3') && urlParams.get('adjective_3') && urlParams.get('noun4') && urlParams.get('noun5')) {
     document.getElementById('form').style.display = 'none';
-    document.getElementById('story').innerHTML = ' Once upon a time, in a ' + urlParams.get('adjective_1') + ' town, there lived a' + urlParams.get('adjective_2') + ' man named ' + urlParams.get('name') + ' who worked as a ' + urlParams.get('noun1') + '.' + ' He had always been ' + urlParams.get('adverb') + 'searching for the perfect way to liven up his ' + urlParams.get('noun2') + ' job. One day, while on a ' + urlParams.get('noun3') + ' break, he stumbled upon a ' + urlParams.get('adjective_3') + ' invention called the ' + urlParams.get('noun4') + ' that promised to turn anything into ' + urlParams.get('noun5');
+    document.getElementById('story').innerHTML = ' Once upon a time, in a ' + urlParams.get('adjective_1') + ' town, there lived a ' + urlParams.get('adjective_2') + ' man named ' + urlParams.get('name') + ' who worked as a ' + urlParams.get('noun1') + '.' + ' He had always been ' + urlParams.get('adverb') + ' searching for the perfect way to liven up his ' + urlParams.get('noun2') + ' job. One day, while on a ' + urlParams.get('noun3') + ' break, he stumbled upon a ' + urlParams.get('adjective_3') + ' invention called the ' + urlParams.get('noun4') + ' that promised to turn anything into a' + urlParams.get('noun5');
   }
 
   // Add a link to the story to clear the form.
