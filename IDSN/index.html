@@ -219,7 +219,7 @@
     document.getElementById('form').style.display = 'none';
 
     // Tell the story
-    document.getElementById('story').innerHTML = ' Once upon a time, in a ' + document.getElementById('adjective_1').value + ' town, there lived a' + document.getElementById('adjective_2').value + ' man named ' + document.getElementById('name').value + ' who worked as a ' + document.getElementById('noun1').value + '.' + ' He had always been ' + document.getElementById('adverb').value + 'searching for the perfect way to liven up his ' + document.getElementById('noun2').value + ' job. One day, while on a ' + document.getElementById('noun3').value + ' break, he stumbled upon a ' + document.getElementById('adjective_3').value + ' invention called the ' + document.getElementById('noun4').value + ' that promised to turn anything into ' + document.getElementById('noun5').value;
+    document.getElementById('story').innerHTML = ' Once upon a time, in a ' + document.getElementById('adjective_1').value + ' town, there lived a' + document.getElementById('adjective_2').value + ' man named ' + document.getElementById('name').value + ' who worked as a ' + document.getElementById('noun1').value + '.' + ' He had always been ' + document.getElementById('adverb').value + 'searching for the perfect way to liven up his ' + document.getElementById('noun2').value + ' job. One day, while on a ' + document.getElementById('noun3').value + ' break, he stumbled upon a ' + document.getElementById('adjective_3').value + ' invention called the ' + document.getElementById('noun4').value + ' that promised to turn anything into a ' + document.getElementById('noun5').value;
   });
 
   // Get the URL parameters and add them to the form.
@@ -238,7 +238,7 @@
   // If we have the person, occupation, and noun, hide the form and show the story.
   if (urlParams.get('adjective_1') && urlParams.get('adjective_2') && urlParams.get('name') && urlParams.get('noun1') && urlParams.get('adverb') && urlParams.get('noun2') && urlParams.get('noun3') && urlParams.get('adjective_3') && urlParams.get('noun4') && urlParams.get('noun5')) {
     document.getElementById('form').style.display = 'none';
-    document.getElementById('story').innerHTML = ' Once upon a time, in a ' + urlParams.get('adjective_1') + ' town, there lived a ' + urlParams.get('adjective_2') + ' man named ' + urlParams.get('name') + ' who worked as a ' + urlParams.get('noun1') + '.' + ' He had always been ' + urlParams.get('adverb') + ' searching for the perfect way to liven up his ' + urlParams.get('noun2') + ' job. One day, while on a ' + urlParams.get('noun3') + ' break, he stumbled upon a ' + urlParams.get('adjective_3') + ' invention called the ' + urlParams.get('noun4') + ' that promised to turn anything into a' + urlParams.get('noun5');
+    document.getElementById('story').innerHTML = ' Once upon a time, in a ' + urlParams.get('adjective_1') + ' town, there lived a ' + urlParams.get('adjective_2') + ' man named ' + urlParams.get('name') + ' who worked as a ' + urlParams.get('noun1') + '.' + ' He had always been ' + urlParams.get('adverb') + ' searching for the perfect way to liven up his ' + urlParams.get('noun2') + ' job. One day, while on a ' + urlParams.get('noun3') + ' break, he stumbled upon a ' + urlParams.get('adjective_3') + ' invention called the ' + urlParams.get('noun4') + ' that promised to turn anything into a ' + urlParams.get('noun5');
   }
 
   // Add a link to the story to clear the form.
