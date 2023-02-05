@@ -36,6 +36,12 @@
 
     
       <link rel="stylesheet" href="/assets/styles.css">
+      <script src="https://d3js.org/d3.v6.min.js"></script>
+      <style>
+        #cards div {
+         display:inline-block;
+        }
+      </style>
     
       <style>
       /* Sticky footer styles -------------------------------------------------- */
@@ -200,6 +206,15 @@
         <script>
           d3.csv("hr-directory.csv", function (data) {
             console.log(data);
+            let row = '<tr>';
+            row += '<td><img src="' + data['picture.medium'] + '"></td>';
+            row += '<td>' + data.nameFirst + ' ' + data.nameLast + '</td>';
+            row += '<td>' + data.city + '</td>';
+            row += '<td>' + data.state + '</td>';
+            row += '<td><a href="mailto:' + data.email + '">' + data.email + '</a></td>';
+            row += '<td><a href="tel:' + data.phone + '">' + data.phone + '</a></td>';
+            row+= '</tr>';
+            d3.select['#directoryTable tbody'].append['tr'].html[row];
           });
         </script>
     </article>
