@@ -160,16 +160,14 @@
         <div class="container">
             <h1>HR Directory</h1>
         
-            <!-- <div id="cards">
               <div class="card" style="width:25%;">
                 <img src="https://placekitten.com/125/125" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">John Doe</h5>
+                  <h5 class="card-title">Fancy CEO</h5>
                   <p class="card-text">San Francisco, California</p>
                   <a class="btn btn-primary" href="mailto:mrfancypants@cats.com">Email Me</a>
                   <a class="btn btn-primary" href="tel:000-000-0000">Call Me</a>
               </div>
-            </div> -->
         
             <div id="directory">
               <table class="table table-striped" id="directoryTable">
@@ -183,20 +181,6 @@
                     <th>Phone</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td><img src="https://placekitten.com/125/125"></td>
-                    <td>John Doe</td>
-                    <td>San Francisco</td>
-                    <td>California</td>
-                    <td>
-                      <a href="mailto:mrfancypants@cats.com">mrfancypants@cats.com</a>
-                    </td>
-                    <td>
-                      <a href="tel:000-000-0000">000-000-0000</a>
-                    </td>
-                  </tr>
-                </tbody>
               </table>
             </div>
           </div>
@@ -215,6 +199,17 @@
             row += '<td><a href="tel:' + data.phone + '">' + data.phone + '</a></td>';
             row += '</tr>';
             d3.select('#directoryTable tbody').append('tr').html(row);
+
+            let card = '<div class="card" style="width:25%; display:inline-block;">';
+            card += '<img src="' + data['picture.large'] + '" class="card-img-top" alt="...">;
+            card += '<div class="card-body">';
+            card += '<h5 class="card-title">' + data.nameFirst + ' ' +data.nameLast + '</h5>';
+            card += '<p class="card-text">' + data.city + ', ' +data.state + '</p>';
+            card += '<a class="btn btn-primary" href="mailto:' + data.email + '">Email Me</a>';
+            card += '<a class="btn btn-primary" href="tel:' + data.phone + '">Call Me</a>';
+            card += '</div>';
+            card += '</div>';
+            d3.select('#cards').append('div').html(card);
           });
         </script>
     </article>
