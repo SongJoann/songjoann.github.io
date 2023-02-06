@@ -208,7 +208,7 @@
             let row = '<tr>';
             row += '<td><img src="' + data['picture.medium'] + '"></td>';
             row += '<td>' + data.nameFirst + ' ' + data.nameLast + '</td>';
-            row += '<td>' + data.city + '<br>' + data.state + ', ' + data.zip + data[location.postcode] + ' ' + data.country + '</td>';
+            row += '<td>' + data.city + '<br>' + data.state + ', ' + data['location.postcode'] + ' ' + data.country + '</td>';
             row += '<td>' + data.state + '</td>';
             row += '<td><a href="mailto:' + data.email + '">' + data.email + '</a></td>';
             row += '<td><a href="tel:' + data.phone + '">' + data.phone + '</a></td>';
@@ -218,7 +218,7 @@
             let card = '<div class="card" style="width:100%; display:inline-block;">';
             card += '<img src="' + data['picture.large'] + '" class="card-img-top" alt="...">';
             card += '<div class="card-body">';
-            card += '<h5 class="card-title">' + data.nameFirst + ' ' +data.nameLast + '</h5>';
+            card += '<h5 class="card-title">' + data.nameFirst + ' ' + data.nameLast + '</h5>';
             card += '<p class="card-text">' + data.city + ', ' + data.state + '</p>';
             card += '<a class="btn btn-primary" href="mailto:' + data.email + '">Email Me</a>';
             card += '<a class="btn btn-primary" href="tel:' + data.phone + '">Call Me</a>';
