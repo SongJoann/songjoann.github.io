@@ -159,8 +159,9 @@
     <article class="article  article--page  typeset">
         <div class="container">
             <h1>HR Directory</h1>
-        
-              <div class="card" style="width:25%;">
+            
+            <div id="cards">
+              <div class="card" style="width:100%;">
                 <img src="https://placekitten.com/125/125" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Fancy CEO</h5>
@@ -168,6 +169,7 @@
                   <a class="btn btn-primary" href="mailto:mrfancypants@cats.com">Email Me</a>
                   <a class="btn btn-primary" href="tel:000-000-0000">Call Me</a>
               </div>
+            </div>
         
             <div id="directory">
               <table class="table table-striped" id="directoryTable">
@@ -193,18 +195,18 @@
             let row = '<tr>';
             row += '<td><img src="' + data['picture.medium'] + '"></td>';
             row += '<td>' + data.nameFirst + ' ' + data.nameLast + '</td>';
-            row += '<td>' + data.city + '</td>';
+            row += '<td>' + data.city + '<br>' + data.state + ', ' + data.zip + data[location.postcode] + ' ' + data.country + '</td>';
             row += '<td>' + data.state + '</td>';
             row += '<td><a href="mailto:' + data.email + '">' + data.email + '</a></td>';
             row += '<td><a href="tel:' + data.phone + '">' + data.phone + '</a></td>';
             row += '</tr>';
             d3.select('#directoryTable tbody').append('tr').html(row);
 
-            let card = '<div class="card" style="width:25%; display:inline-block;">';
-            card += '<img src="' + data['picture.large'] + '" class="card-img-top" alt="...">;
+            let card = '<div class="card" style="width:100%; display:inline-block;">';
+            card += '<img src="' + data['picture.large'] + '" class="card-img-top" alt="...">';
             card += '<div class="card-body">';
             card += '<h5 class="card-title">' + data.nameFirst + ' ' +data.nameLast + '</h5>';
-            card += '<p class="card-text">' + data.city + ', ' +data.state + '</p>';
+            card += '<p class="card-text">' + data.city + ', ' + data.state + '</p>';
             card += '<a class="btn btn-primary" href="mailto:' + data.email + '">Email Me</a>';
             card += '<a class="btn btn-primary" href="tel:' + data.phone + '">Call Me</a>';
             card += '</div>';
