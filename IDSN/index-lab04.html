@@ -157,6 +157,9 @@
   <div class="content">
 
     <article class="article  article--page  typeset">
+        
+    <body>
+
         <div class="container">
             <h1>HR Directory</h1>
         
@@ -187,7 +190,7 @@
             </div>
           </div>
         
-        </body>
+    </body>
         
         <script>
           d3.csv("hr-directory.csv", function (data) {
@@ -202,7 +205,7 @@
             row += '</tr>';
             d3.select('#directoryTable tbody').append('tr').html(row);
 
-            let card = '<div class="card" style="width:25%; display:inline-block;">';
+            let card = '<div class="card" style="width:100%; display:inline-block;">';
             card += '<img src="' + data['picture.large'] + '" class="card-img-top" alt="...">';
             card += '<div class="card-body">';
             card += '<h5 class="card-title">' + data.nameFirst + ' ' +data.nameLast + '</h5>';
