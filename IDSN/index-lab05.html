@@ -1,0 +1,207 @@
+# Lab 5: Browser APIs – TODO app
+# Deliverable: Build a simple TODO app that leverages local storage. Details:
+# • This application should be able leverage browser APIs for storage.
+# • A user should be able to create, read, update, and destroy items in the TODO list.
+# • A user should be able to mark an item in the list as done.
+# • A user should be able to close the page and then return to the existing state.
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+    <!-- General meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    
+      <!-- Begin Jekyll SEO tag v2.6.1 -->  
+    <meta name="generator" content="Jekyll v4.3.2" />
+    <meta property="og:title" content="Blog" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="Front End programming labs" />
+    <meta property="og:description" content="Front End programming labs" />
+    <link rel="canonical" href="http://localhost:4000/IDSN/" />
+    <meta property="og:url" content="http://localhost:4000/IDSN/" />
+    <meta property="og:site_name" content="My website" />
+    <script type="application/ld+json">
+      {"url":"http://localhost:4000/IDSN/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/6c0377abcf4da91cdd35dea4554b2a4c?s=52"}},"headline":"Blog","description":"This is my new website","@type":"WebPage","@context":"https://schema.org"}</script>
+    <!-- End Jekyll SEO tag -->
+
+
+      
+      <title>LAB 05: Browser APIs - TODO app</title>
+    
+      <meta property="og:title" content="Lab Exercises">
+      <meta name="description" content="Lab Exercises">
+      <meta property="og:description" content="Lab Exercises">
+    
+    
+
+      <link rel="manifest" href="/manifest.json">
+      <meta name="theme-color" content="#242e2b"/>
+
+    
+      <link rel="stylesheet" href="/assets/styles.css">
+      <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css">
+      <script src="https://d3js.org/d3.v6.min.js"></script>
+
+      <style>
+        #cards div {
+         display:inline-block;
+        }
+      </style>
+    
+      <style>
+      /* Sticky footer styles -------------------------------------------------- */
+      html {
+        position: relative;
+        min-height: 100%;
+      }
+
+      body {
+        margin-bottom: 60px;
+      /* Margin bottom by footer height */
+      }
+
+      </style>
+
+</head>
+
+<body class="layout-blog  blog">
+
+<header class="header">
+
+  <div class="container">
+    <a class="logo" href="/"><img src="/assets/headphones.jpg" alt="My website logo"/></a>
+
+
+    
+<nav class="nav  nav--header">
+  <ul class="list  list--nav">
+    
+
+      
+
+      <li class="item  item--nav">
+        <a href="/">Home</a>
+      </li>
+    
+
+      
+
+      <li class="item  item--nav">
+        <a href="/about/">About</a>
+      </li>
+
+      
+
+      <li class="item  item--nav  item--current">
+        <a href="/IDSN/">IDSN</a>
+      </li>
+    
+  </ul>
+
+  <button class="button  button--nav" aria-label="Menu toggle">
+    <svg width="16" height="16" class="icon  icon--nav" role="img" alt="Menu"><title>Menu</title><use xlink:href="#nav" fill="CurrentColor"></use></svg>
+
+  </button>
+</nav>
+
+
+<script type="text/javascript">
+  // Get list and button
+  const navList = document.querySelector('.header .list--nav')
+  const button  = document.querySelector('.header .button--nav')
+
+  // Hide nav and apply toggle
+  const collapseNav = () => {
+    if (document.body.clientWidth < 640) {
+      navList.style.setProperty('--listHeight', `-${navList.offsetHeight}px`)
+    } else {
+      navList.removeAttribute('style')
+    }
+
+    button.onclick = () => {
+      navList.style.setProperty('transition', `margin .1s`)
+      if (navList.style.getPropertyValue('--listHeight')) {
+        navList.style.removeProperty('--listHeight')
+      } else {
+        navList.style.setProperty('--listHeight', `-${navList.offsetHeight}px`)
+      }
+    }
+  }
+
+  collapseNav()
+
+  // Check on resize if to collapse nav
+  window.addEventListener('resize', () => {
+    collapseNav()
+  })
+</script>
+  </div>
+
+
+
+  <div class="feature" style="background-image: url(https://picsum.photos/2560/600?image=866)">
+    <div class="container  typeset">
+      <p>IDSN 599: Front End Programming</p>
+
+    </div>
+  </div>
+</header>
+
+<main class="main  container">
+
+    <section class="section  typeset">
+        <ul class="list  list--posts"></ul>
+        <nav class="nav  nav--paginator">
+    
+      
+
+        <span class="pagination  pagination--previous">&larr; Newer</span>
+        <span class="pagination  pagination--counter">Page: 2 of 2</span>
+        <span class="pagination  pagination--next">Older &rarr;</span>
+      
+    </nav>
+    
+      
+    </section>
+    
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+      <div class="copyright  typeset">
+        <small class="small">&copy; My website 2023</small>
+      </div>
+  
+      
+  <nav class="nav  nav--footer">
+    <ul class="list list--nav">
+      
+  
+        
+  
+        <li class="item  item--nav">
+          <a href="/#top">Back to top</a>
+        </li>
+      
+    </ul>
+  </nav>
+  
+  
+    </div>
+  </footer>
+  
+  
+  
+      <script type="text/javascript">
+  
+      </script>
+  
+    </body>
+  
+  </html>
