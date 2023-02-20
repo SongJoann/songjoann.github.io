@@ -158,15 +158,6 @@
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
 
-      <section class="section  typeset">
-        <ul class="list  list--posts"></ul>
-        <nav class="nav  nav--paginator">
-            <span class="pagination  pagination--previous">&larr; Newer</span>
-            <span class="pagination  pagination--counter">Page: 2 of 2</span>
-            <span class="pagination  pagination--next">Older &rarr;</span>
-        </nav>
-      </section>
-
     </form>
 
     <!-- Display the list of tasks in the list-->
@@ -176,6 +167,15 @@
   </div>
 
 </main>
+
+<section class="section  typeset">
+  <ul class="list  list--posts"></ul>
+  <nav class="nav  nav--paginator">
+      <span class="pagination  pagination--previous">&larr; Newer</span>
+      <span class="pagination  pagination--counter">Page: 2 of 2</span>
+      <span class="pagination  pagination--next">Older &rarr;</span>
+  </nav>
+</section>
 
 <footer class="footer">
     <div class="container">
@@ -201,8 +201,39 @@
   
   
       <script type="text/javascript">
+
+        // Get the list from local storage 
         let JoannList = JSON.parse(localStorage.getItem('JoannList')) || [];
-  
+
+        // Render todo list
+        JoannList.forEach(function(item) {
+          let newtaskElement = document.createElement('li');
+          newtaskElement.classList.add('list-group-item');
+          newtaskElement.innerText = task;
+          document.getElementById('JoannList').appendChild(newtaskElement);
+        });
+
+        // Add task to the list when user presses submit
+        document.getElementById('Joann_todo').addEventListener('submit', function(event) {
+          event.preventDefault();
+          let newtask = document.getElementById('todo_input').value;
+          let newtaskElement = document.createElement('li');
+          newtaskElement.classList.add('list-group-item');
+          newtaskElement.innerText = newtask
+          document.getElementById('Joann_todo').appendChild(newtaskElement);
+
+        // After adding the item, add item to JoannList local storage
+        JoannList.push(newtask);
+
+        // Save the JoannList array to local storage
+        localStorage.setItem('JoannList', JSON.stringify(JoannList));
+
+        // Clear the input
+        document.getElementById('todo_input').value = '';
+        
+        });
+
+        
       </script>
   
     </body>
