@@ -58,6 +58,12 @@
       /* Margin bottom by footer height */
       }
 
+      button.form-submit {
+        margin-bottom: 60px;
+      }
+
+
+
       </style>
 
 </head>
@@ -156,7 +162,7 @@
         <label for="todo_input">Add a new task</label>
         <input type="text" class="form-control" id="todo_input" placeholder="Enter a new task">
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="form-submit">Submit</button>
 
     </form>
 
@@ -219,18 +225,30 @@
           let newtask = document.getElementById('todo_input').value;
           let newtaskElement = document.createElement('li');
           newtaskElement.classList.add('list-group-item');
-          newtaskElement.innerText = newtask
-          document.getElementById('Joann_todo').appendChild(newtaskElement);
+          newtaskElement.innerText = newtask;
 
+          // Remove an item from the list
+          let remove_btn = document.createElement('button');
+          remove_btn.classList.add('btn', 'btn-danger', 'float-right');
+
+          // Event listener for remove button
+          remove_btn.addEventListener('click', function(event) {
+            JoannList = JoannList.filter(function(task) {
+              return task != newtask;
+            });
+
+            // Save the JoannList array to local storage
+            localStorage.setItem('JoannList', JSON.stringify(JoannList));
+            
+            // Remove item from DOM
+            newtaskElement.remove();
+      
         // After adding the item, add item to JoannList local storage
         JoannList.push(newtask);
 
-        // Save the JoannList array to local storage
-        localStorage.setItem('JoannList', JSON.stringify(JoannList));
-
         // Clear the input
         document.getElementById('todo_input').value = '';
-        
+
         });
 
         
