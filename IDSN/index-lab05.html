@@ -226,6 +226,45 @@
           let newtaskElement = document.createElement('li');
           newtaskElement.classList.add('list-group-item');
           newtaskElement.innerText = newtask;
+
+          // Remove an item from the list
+          let removebtn = document.createElement('button');
+          removebtn.classList.add('btn', 'btn-danger', 'float-right');
+
+          // Event listener for remove button
+          removebtn.addEventListener('click', function(event) {
+          JoannList = JoannList.filter(function(item) {
+            return item != newtask;
+          });
+
+          // Save the JoannList array to local storage
+          localStorage.setItem('JoannList', JSON.stringify(JoannList));
+            
+          // Remove item from DOM
+          newtaskElement.remove();
+          });
+
+          // Done button
+          let donebtn = document.createElement('button');
+          donebtn.classList.add('btn', 'btn-succes', 'btn-danger', 'float-right');
+
+          // Event listener for done button
+          donebtn.addEventListener('click', function(event) {
+          JoannList = JoannList.filter(function(item) {
+            return item != newtask;
+          });
+
+          // Save the JoannList array to local storage
+          localStorage.setItem('JoannList', JSON.stringify(JoannList));
+            
+          // Remove item from DOM
+          newtaskElement.remove();
+          });
+
+          //append done btn
+          newtaskElement.appendChild(donebtn);
+          newtaskElement.appendChild(removebtn);
+
           document.getElementById('JoannList').appendChild(newtaskElement);
 
           // After adding the item, add item to JoannList local storage
@@ -239,23 +278,6 @@
 
         });
 
-          // Remove an item from the list
-          let remove_btn = document.createElement('button');
-          remove_btn.classList.add('btn', 'btn-danger', 'float-right');
-
-          // Event listener for remove button
-          remove_btn.addEventListener('click', function(event) {
-            JoannList = JoannList.filter(function(item) {
-              return item != newtask;
-            });
-
-            // Save the JoannList array to local storage
-            localStorage.setItem('JoannList', JSON.stringify(JoannList));
-            
-            // Remove item from DOM
-            newtaskElement.remove();
-          });
-        
       </script>
   
     </body>
