@@ -226,6 +226,18 @@
           let newtaskElement = document.createElement('li');
           newtaskElement.classList.add('list-group-item');
           newtaskElement.innerText = newtask;
+          document.getElementById('JoannList').appendChild(newtaskElement);
+
+          // After adding the item, add item to JoannList local storage
+          JoannList.push(newtask);
+
+          // Save the JoannList array to local storage
+          localStorage.setItem('JoannList', JSON.stringify(JoannList));
+
+          // Clear the input
+          document.getElementById('todo_input').value = '';
+
+        });
 
           // Remove an item from the list
           let remove_btn = document.createElement('button');
@@ -243,15 +255,6 @@
             // Remove item from DOM
             newtaskElement.remove();
           });
-
-        // After adding the item, add item to JoannList local storage
-        JoannList.push(newtask);
-
-        // Clear the input
-        document.getElementById('todo_input').value = '';
-
-      });
-
         
       </script>
   
