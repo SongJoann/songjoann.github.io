@@ -215,7 +215,7 @@
         JoannList.forEach(function(item) {
           let newtaskElement = document.createElement('li');
           newtaskElement.classList.add('list-group-item');
-          newtaskElement.innerText = task;
+          newtaskElement.innerText = item;
           document.getElementById('JoannList').appendChild(newtaskElement);
         });
 
@@ -234,7 +234,7 @@
           // Event listener for remove button
           remove_btn.addEventListener('click', function(event) {
             JoannList = JoannList.filter(function(task) {
-              return task != newtask;
+              return item != newtask;
             });
 
             // Save the JoannList array to local storage
