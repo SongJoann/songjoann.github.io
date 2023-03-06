@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+    <!-- General meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    
+      <!-- Begin Jekyll SEO tag v2.6.1 -->  
+    <meta name="generator" content="Jekyll v4.3.2" />
+    <meta property="og:title" content="Blog" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="Front End programming labs" />
+    <meta property="og:description" content="Front End programming labs" />
+    <link rel="canonical" href="http://localhost:4000/IDSN/" />
+    <meta property="og:url" content="http://localhost:4000/IDSN/" />
+    <meta property="og:site_name" content="My website" />
+    <script type="application/ld+json">
+      {"url":"http://localhost:4000/IDSN/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/6c0377abcf4da91cdd35dea4554b2a4c?s=52"}},"headline":"Blog","description":"This is my new website","@type":"WebPage","@context":"https://schema.org"}</script>
+    <!-- End Jekyll SEO tag -->
+
+
+      
+      <title>LAB 05: Browser APIs - TODO app</title>
+    
+      <meta property="og:title" content="Lab Exercises">
+      <meta name="description" content="Lab Exercises">
+      <meta property="og:description" content="Lab Exercises">
+    
+    
+
+      <link rel="manifest" href="/manifest.json">
+      <meta name="theme-color" content="#242e2b"/>
+
+    
+      <link rel="stylesheet" href="/assets/styles.css">
+      <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css">
+      <script src="https://d3js.org/d3.v6.min.js"></script>
+
+      <style>
+        #cards div {
+         display:inline-block;
+        }
+      </style>
+    
+      <style>
+      /* Sticky footer styles -------------------------------------------------- */
+      html {
+        position: relative;
+        min-height: 100%;
+      }
+
+      body {
+        margin-bottom: 60px;
+      /* Margin bottom by footer height */
+      }
+
+      button.form-submit {
+        margin-bottom: 60px;
+      }
+
+
+
+      </style>
+
+</head>
+
+<body class="layout-blog  blog">
+
+<header class="header">
+
+  <div class="container">
+    <a class="logo" href="/"><img src="/assets/headphones.jpg" alt="My website logo"/></a>
+
+
+    
+<nav class="nav  nav--header">
+  <ul class="list  list--nav">
+    
+
+      
+
+      <li class="item  item--nav">
+        <a href="/">Home</a>
+      </li>
+    
+
+      
+
+      <li class="item  item--nav">
+        <a href="/about/">About</a>
+      </li>
+
+      
+
+      <li class="item  item--nav  item--current">
+        <a href="/IDSN/">IDSN</a>
+      </li>
+    
+  </ul>
+
+  <button class="button  button--nav" aria-label="Menu toggle">
+    <svg width="16" height="16" class="icon  icon--nav" role="img" alt="Menu"><title>Menu</title><use xlink:href="#nav" fill="CurrentColor"></use></svg>
+
+  </button>
+</nav>
+
+
+<script type="text/javascript">
+  // Get list and button
+  const navList = document.querySelector('.header .list--nav')
+  const button  = document.querySelector('.header .button--nav')
+
+  // Hide nav and apply toggle
+  const collapseNav = () => {
+    if (document.body.clientWidth < 640) {
+      navList.style.setProperty('--listHeight', `-${navList.offsetHeight}px`)
+    } else {
+      navList.removeAttribute('style')
+    }
+
+    button.onclick = () => {
+      navList.style.setProperty('transition', `margin .1s`)
+      if (navList.style.getPropertyValue('--listHeight')) {
+        navList.style.removeProperty('--listHeight')
+      } else {
+        navList.style.setProperty('--listHeight', `-${navList.offsetHeight}px`)
+      }
+    }
+  }
+
+  collapseNav()
+
+  // Check on resize if to collapse nav
+  window.addEventListener('resize', () => {
+    collapseNav()
+  })
+</script>
+  </div>
+
+
+
+  <div class="feature" style="background-image: url(https://picsum.photos/2560/600?image=866)">
+    <div class="container  typeset">
+      <p>IDSN 599: Front End Programming</p>
+
+    </div>
+  </div>
+</header>
+
+<body>
+  <section class="vh-100" style="background-color: #f4f5f7;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-lg-6 mb-4 mb-lg-0">
+          <div class="card mb-3" style="border-radius: .5rem;">
+            <div class="row g-0">
+              <div class="col-md-4 gradient-custom text-center text-white"
+                style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                  alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+                <h5>Marie Horwitz</h5>
+                <p>Web Designer</p>
+                <i class="far fa-edit mb-5"></i>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body p-4">
+                  <h6>Information</h6>
+                  <hr class="mt-0 mb-4">
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <h6>Email</h6>
+                      <p class="text-muted">info@example.com</p>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <h6>Phone</h6>
+                      <p class="text-muted">123 456 789</p>
+                    </div>
+                  </div>
+                  <h6>Projects</h6>
+                  <hr class="mt-0 mb-4">
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <h6>Recent</h6>
+                      <p class="text-muted">Lorem ipsum</p>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <h6>Most Viewed</h6>
+                      <p class="text-muted">Dolor sit amet</p>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-start">
+                    <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
+                    <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
+                    <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+<script>
+    fetch('https://randomuser.me/api')
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function (data) {
+            let user = data.results[0];
+            let userName = `${user.name.first} ${user.name.last}`;
+            let socialUserName = user.login.username;
+
+        document.getElementById('user-image').src = user.picture.large;
+        document.querySelector('#user-image').setAttribute('alt', userName);
+
+        document.querySelector('.name').innerHTML = userName;
+        document.querySelectorAll('.name').forEach((item) => {
+            item.innerText = userName;
+        });
+
+        document.querySelectorAll('.social-link').forEach((item) => {
+            item.href = 'https://www.${item.id}.com/${socialUserName}';
+            item.innerText = socialUserName;
+        });
+        
+});
+        
+</script>
