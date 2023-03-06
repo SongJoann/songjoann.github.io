@@ -208,8 +208,8 @@
 </body>
 
 <script>
-    fetch('https://randomuser.me/api?results=50')
-        .then(function(response) {
+    fetch('https://randomuser.me/api')
+        .then(function (response) {
             return response.json();
         })
         .then(function (data) {
@@ -217,19 +217,20 @@
             let userName = `${user.name.first} ${user.name.last}`;
             let socialUserName = user.login.username;
 
-        document.getElementById('user-image').src = user.picture.large;
-        document.querySelector('#user-image').setAttribute('alt', userName);
+            document.getElementById('user-image').src = user.picture.large;
+            document.querySelector('#user-image').setAttribute('alt', userName);
 
-        document.querySelector('.name').innerHTML = userName;
-        document.querySelectorAll('.name').forEach((item) => {
-            item.innerText = userName;
-        });
+            document.querySelector('.name').innerHTML = userName;
+            document.querySelectorAll('.name').forEach((item) => {
+                item.innerText = userName;
+            });
 
-        document.querySelectorAll('.social-link').forEach((item) => {
-            item.href = 'https://www.${item.id}.com/${socialUserName}';
-            item.innerText = socialUserName;
+            document.querySelectorAll('.social-link').forEach((item) => {
+                item.href = 'https://www.${item.id}.com/${socialUserName}';
+                item.innerText = socialUserName;
+            });
+
         });
-        
-});
-        
+    
 </script>
+</html>
