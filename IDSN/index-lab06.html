@@ -183,12 +183,12 @@
                   <hr class="mt-0 mb-4">
                   <div class="row pt-1">
                     <div class="col-6 mb-3">
-                      <h6>Recent</h6>
-                      <p class="text-muted">Lorem ipsum</p>
+                      <h6>website</h6>
+                      <p class="social-link">Lorem ipsum</p>
                     </div>
                     <div class="col-6 mb-3">
-                      <h6>Most Viewed</h6>
-                      <p class="text-muted">Dolor sit amet</p>
+                      <h6>address</h6>
+                      <p class="location">Dolor sit amet</p>
                     </div>
                   </div>
                   <div class="d-flex justify-content-start">
@@ -216,6 +216,7 @@
             let userName = `${user.name.first} ${user.name.last}`;
             let userEmail = user.email;
             let userPhone = user.phone;
+            let userLocation = `${user.street.number} ${user.street.name}`;
             let socialUserName = user.login.username;
             
 
@@ -233,10 +234,13 @@
             document.querySelectorAll('.phone').forEach((item) => {
                 item.innerText = userPhone;
             });
+
+            document.querySelectorAll('.location').forEach((item) => {
+                item.innerText = userLocation;
+            });
             
             document.querySelectorAll('.social-link').forEach((item) => {
-                item.href = 'https://www.${item.id}.com/${socialUserName}';
-                item.innerText = socialUserName;
+                item.innerText = 'https://www.randomuser.com/${socialUserName}';
             });
 
         });
