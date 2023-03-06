@@ -217,7 +217,7 @@
             let userEmail = user.email;
             let userPhone = user.phone;
             let userLocation = `${user.location.street.number} ${user.location.street.name}`;
-            let userWebsite = 'https://www.randomuser.com/${user.login.username}'
+            let userWebsite = `https://www.randomuser.com/${user.login.username}`;
 
             document.getElementById('user-image').src = user.picture.large;
             document.querySelector('#user-image').setAttribute('alt', userName);
